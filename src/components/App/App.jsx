@@ -1,26 +1,24 @@
 
 import css from './App.module.css'
 import React, { useState, useEffect } from "react";
+// import { Formik } from 'formik';
 import Description from "../Description/Description"
-import LoginForm from "../Form/Form"
-import LoginFormSecond from "../FormSecond/FormSecond"
-import LoginForm3 from "../UzersId/UzersId"
-import PasswordField from "../Password/Password"
-import SearchBar from "../SearchBar/SearchBar"
-import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
+import ContactForm from "../ContactForm/ContactForm"
+import SearchBox from "../SearchBox/SearchBox"
+import FeedbackForm from "../Contact/Contact"
+
 import RadioButn from "../RadioButn/RadioButn"
-import Checkbox from "../Checkbox/Checkbox"
-import { LoginFormMy } from "../LoginFormMy/LoginFormMy";
+
 
 export default function App() {
-  const [lang, setLang] = useState("uk");
+
   const [clicks, setValues] = useState(() => {
     const savClicks = window.localStorage.getItem("m-click");
     return savClicks !== null ? JSON.parse(savClicks) : 0;
   });
-  const handleLogin = (log) => {
+  const handleName = (name) => {
     // Виконуємо необхідні операції з даними
-    console.log(log);
+    console.log(name);
   };
   useEffect(() => {
     window.localStorage.setItem("m-click", JSON.stringify(clicks));
@@ -29,17 +27,9 @@ export default function App() {
     <div className={css.container}>
       <>
         <Description />
-        <> <h3>Hello Checkbox</h3> <Checkbox /></>
-        <LoginForm />
-        <LoginFormMy />
-        <LoginFormSecond onLogin={handleLogin} />
-        <LoginForm3 />
-        <PasswordField />
-        <SearchBar />
-        <>
-          <p>Selected language: {lang}</p>
-          <LangSwitcher value={lang} onSelect={setLang} />
-        </>
+        <ContactForm onName={handleName} />
+        <SearchBox />
+        < FeedbackForm />
         <div className="css.item">
           <RadioButn />
         </div>
