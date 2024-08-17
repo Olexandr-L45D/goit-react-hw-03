@@ -1,23 +1,38 @@
 
 import css from './App.module.css'
 import React, { useState, useEffect } from "react";
-// import { Formik } from 'formik';
-import Description from "../Description/Description"
-import ContactForm from "../ContactForm/ContactForm"
+import object from '../../../tasks.json';
+//import ContactForm from "../ContactForm/ContactForm"
 import SearchBox from "../SearchBox/SearchBox"
-import FeedbackForm from "../Contact/Contact"
-
-import RadioButn from "../RadioButn/RadioButn"
-
+import ContactList from "../ContactList/ContactList"
+// import Filter from '../Filter/Filter';
+// import tasks from '../Task/Task';
 
 export default function App() {
+  // const [tasks, setTasks] = useState(initialTasks);
+  // const [filter, setFilter] = useState('');
+
+  // const addTask = (newTask) => {
+  //   setTasks((prevTasks) => {
+  //     return [...prevTasks, newTask];
+  //   });
+  // };
+
+  // const deleteTask = (taskId) => {
+  //   setTasks((prevTasks) => {
+  //     return prevTasks.filter((task) => task.id !== taskId);
+  //   });
+  // };
+
+  // const visibleTasks = tasks.filter((task) =>
+  //   task.text.toLowerCase().includes(filter.toLowerCase())
+  // );
 
   const [clicks, setValues] = useState(() => {
     const savClicks = window.localStorage.getItem("m-click");
     return savClicks !== null ? JSON.parse(savClicks) : 0;
   });
   const handleName = (name) => {
-    // Виконуємо необхідні операції з даними
     console.log(name);
   };
   useEffect(() => {
@@ -26,31 +41,19 @@ export default function App() {
   return (
     <div className={css.container}>
       <>
-        <Description />
-        <ContactForm onName={handleName} />
+        <h1>Phonebook</h1>
+        {/* <ContactForm onName={handleName} /> */}
         <SearchBox />
-        < FeedbackForm />
-        <div className="css.item">
-          <RadioButn />
-        </div>
+        < ContactList object={object} />
+
       </>
 
     </div>
   )
 }
 
-
-// Колбек-функція для обробки сабміту форми
-// const handleLogin = (userData) => {
-//   // Виконуємо необхідні операції з даними
-//   console.log(userData);
-// };
-
-// return (
-//   <div>
-//     <h1>Please login to your account!</h1>
-//     {/* Передаємо колбек як пропс форми */}
-//     <LoginForm onLogin={handleLogin} />
-//   </div>
-// );
-
+{/* <div className="css.item">
+          <Form onAdd={addTask} />
+          <Filter value={filter} onFilter={setFilter} />
+          <TaskList tasks={visibleTasks} onDelete={deleteTask} />
+        </div> */}
