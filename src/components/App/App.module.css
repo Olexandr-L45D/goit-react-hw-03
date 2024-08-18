@@ -47,8 +47,6 @@
 .container {
   width: 100%;
   margin: 10px auto;
-  border: 4px solid rgb(0, 0, 0);
-  border-radius: 10px;
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -64,9 +62,6 @@
   border: 1px solid rgb(104, 102, 102);
   color: rgb(14, 15, 15);
   display: flex;
-  /* flex-direction: column;
-    text-align: left;
-    align-items: left; */
 }
 
 .title {
@@ -80,12 +75,9 @@
   line-height: 1.5;
   font-weight: 500;
   list-style: none;
-  /* border: 1px solid rgb(104, 102, 102); */
   color: rgb(14, 15, 15);
   display: flex;
-  /* flex-direction: column;
-    text-align: left;
-    align-items: left; */
+
 }
 
 @media screen and (min-width: 375px) {
@@ -98,12 +90,10 @@
   .container {
     width: 768px;
   }
-
 }
 
 @media screen and (min-width: 1440px) {
   .container {
     width: 1440px;
-    margin: 20px auto;
   }
 }
