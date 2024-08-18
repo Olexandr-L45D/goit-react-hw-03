@@ -1,18 +1,17 @@
 // ContactForm
 import css from "./ContactForm.module.css"
 
-export default function ContactForm({ onName }) {
+export default function ContactForm({ onAdd }) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        const form = evt.target;
-        const { name, number } = form.elements;
-        // Викликаємо пропс onLogin
-        onLogin({
-            name: name.value,
-            number: number.value,
-        });
-        form.reset();
+
+        onAdd({
+            id: Date.now(),
+            name: evt.target.elements.name.value,
+            number: evt.target.elements.number.value,
+        })
+        evt.target.reset();
     };
     return (
         <div className={css.item}>
