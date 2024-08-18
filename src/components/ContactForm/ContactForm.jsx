@@ -11,7 +11,7 @@ const FeedbackSchema = Yup.object().shape({
     number: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required")
 });
 
-export default function ContactForm() {
+export default function ContactForm({ onAdd }) {
     const nameFieldId = useId();
     const numberFieldId = useId();
     const handleSubmit = (values, actions) => {
@@ -25,47 +25,31 @@ export default function ContactForm() {
                 number: " "
             }} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
                 <Form>
-
                     <label htmlFor={nameFieldId} className={css.paragraf}>Name</label>
                     <Field type="text" name="name" id={nameFieldId} />
                     <ErrorMessage name="name" component="span" />
                     <label htmlFor={numberFieldId} className={css.paragraf}>Number</label>
-                    <Field type="number" name="number" id={numberFieldId} />
+                    <Field type="text" name="number" id={numberFieldId} />
                     <ErrorMessage name="number" component="span" />
                     <div className={css.btn}>
                         <button className={css.addContact} type="submit">Add contact</button>
                     </div>
                 </Form>
-
             </Formik>
         </div>
     );
 };
 
-{/* <Field as="number" type="text" name="number" id={numberFieldId} /> */ }
-// const handleSubmit = (evt) => {
-//     evt.preventDefault();
+
+// const handleSubmit = (e) => {
 //     onAdd({
-//         id: id + nanoid(), name: evt.target.elements.name.value, number: evt.target.elements.number.value,
-//     }); evt.target.reset();
+//         id: nanoid(),
+//         name: e.target.value,
+//         number: e.target.value
+//     });
+//     e.target.reset();
 // };
-// <form onSubmit={handleSubmit}>
-//     куди цю функцію onSubmit={handleSubmit}
-// </form>
 // id: Date.now(),
-// export default function LoginForm3() {
-//     const loginId = useId();
-//     const passwordId = useId();
-
-//     return (
-//         <form>
-//             <label htmlFor={loginId}>Login</label>
-//             <input type="text" name="login" id={loginId} />
-
-//             <label htmlFor={passwordId}>Password</label>
-//             <input type="password" name="password" id={passwordId} />
-
-//             <button type="submit">Login</button>
-//         </form>
-//     );
-// };
+// name: e.target.elements.text.value,
+//number: e.target.elements.text.value
+// 

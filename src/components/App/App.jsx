@@ -7,14 +7,11 @@ import SearchBox from "../SearchBox/SearchBox"
 import ContactList from "../ContactList/ContactList"
 
 export default function App() {
-  // const [tasks, setTasks] = useState(() => {
-  //   const savClicks = window.localStorage.getItem("m-click");
-  //   return savClicks > null && JSON.parse({ object });
-  // });
 
   const [tasks, setTasks] = useState(object);
 
   const [filter, setFilter] = useState('');
+
   const addTask = (newTask) => {
     setTasks((prevTasks) => {
       return [...prevTasks, newTask];
@@ -40,7 +37,7 @@ export default function App() {
         <p>{filter}</p>
         <ContactForm onAdd={addTask} />
         <SearchBox value={filter} onFilter={setFilter} />
-        <ContactList tasks={visibleTasks} object={object} onDelete={deleteTask} />
+        <ContactList tasks={visibleTasks} object={object} onAdd={addTask} onDelete={deleteTask} />
       </>
 
     </div>
