@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid'
-import { useState } from "react";
 import css from "./ContactForm.module.css"
 import { Formik, Form, Field } from 'formik';
 import { useId } from "react";
@@ -17,12 +16,12 @@ export default function ContactForm({ onAdd }) {
 
     const handleSubmit = (values, actions) => {
 
-        // add onAdd and e on handleSubmit
-        // onAdd({
-        //     id: nanoid(),
-        //     name: e.target.elements.name.value,
-        //     number: e.target.elements.number.value
-        // });
+
+        onAdd({
+            id: nanoid(),
+            name: e.target.elements.name.value,
+            number: e.target.elements.number.value
+        });
 
         console.log(values);
         actions.resetForm();
@@ -49,11 +48,4 @@ export default function ContactForm({ onAdd }) {
         </div>
     );
 };
-
-
-// onAdd({
-//     id: nanoid(),
-//     name: e.target.elements.name.value,
-//     number: e.target.elements.number.value
-// });
 
