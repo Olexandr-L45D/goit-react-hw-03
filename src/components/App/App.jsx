@@ -7,8 +7,28 @@ import SearchBox from "../SearchBox/SearchBox"
 import ContactList from "../ContactList/ContactList"
 
 export default function App() {
-  const [tasks, setTasks] = useState(objects);
   const [filter, setFilter] = useState('');
+  const [tasks, setTasks] = useState(() => {
+    const isLocalStorageData = Boolean(localStorage.getItem('tasks'));
+
+    if (isLocalStorageData) {
+      const data = localStorage.getItem('tasks');
+      return JSON.parse(data);
+    }
+    return objects;
+  });
+
+  useEffect(() => {
+    const isLocalStorData = Boolean(localStorage.getItem('reviews'));
+    if (isLocalStorData) {
+      const data = localStorage.getItem('reviews');
+      setTasks(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("m-click", JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (newTask) => {
     setTasks((prevTasks) => {
@@ -23,10 +43,6 @@ export default function App() {
   };
   const visibleTasks = tasks.filter((task) =>
     task.name.toLowerCase().includes(filter.toLowerCase()));
-
-  useEffect(() => {
-    window.localStorage.setItem("m-click", JSON.stringify(tasks));
-  }, [tasks]);
 
   return (
     <div className={css.container}>
