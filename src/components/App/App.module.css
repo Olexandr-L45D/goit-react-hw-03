@@ -65,18 +65,17 @@
 }
 
 .title {
-  width: 100%;
+  width: 180px;
   height: auto;
-  margin: 1px;
-  padding: 1px;
+  margin: 10px;
+  padding: 10px;
   padding-top: 2px;
   padding-bottom: 2px;
-  font-size: 1em;
+  font-size: 2em;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 800;
   list-style: none;
   color: rgb(14, 15, 15);
-  display: flex;
 
 }
 
