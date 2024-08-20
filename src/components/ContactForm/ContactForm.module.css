@@ -1,5 +1,5 @@
 .item {
-    width: 220px;
+    width: 250px;
     height: auto;
     margin: 5px;
     padding: 5px;
@@ -15,9 +15,18 @@
     align-items: left;
 }
 
-.paragraf {
-    padding-bottom: 0px;
-    margin: 0px;
+.items {
+    width: 220px;
+    margin: 5px;
+    margin-bottom: 16px;
+    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.label {
+    margin-bottom: 16px;
+    padding: 10px;
 }
 
 .btn {
@@ -36,4 +45,16 @@
     border: 1px solid rgb(104, 102, 102);
     border-radius: 5px;
     color: rgb(14, 15, 15);
+}
+
+.messag {
+    margin: 5px;
+    margin-bottom: 16px;
+    padding: 10px;
+}
+
+.inp {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 2px;
 }

@@ -6,7 +6,6 @@ export default function ContactList({ tasks, onDelete }) {
         <ul className={css.list}>
             {tasks.map((task) => (
                 <li className={css.item} key={task.id} >
-
                     <Contact obj={task} onDelete={onDelete} />
                 </li>
             ))}
@@ -14,6 +13,4 @@ export default function ContactList({ tasks, onDelete }) {
     );
 }
 
-
-{/* <li className={css.item} key={nanoid()}> */ }
 
