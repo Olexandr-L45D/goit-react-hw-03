@@ -10,7 +10,6 @@ export default function App() {
   const [filter, setFilter] = useState('');
   const [tasks, setTasks] = useState(() => {
     const isLocalStorageData = Boolean(localStorage.getItem('tasks'));
-
     if (isLocalStorageData) {
       const data = localStorage.getItem('tasks');
       return JSON.parse(data);
@@ -39,7 +38,6 @@ export default function App() {
     setTasks((prevTasks) => {
       return prevTasks.filter((task) => task.id !== taskId);
     });
-    // console.log(taskId);
   };
   const visibleTasks = tasks.filter((task) =>
     task.name.toLowerCase().includes(filter.toLowerCase()));
