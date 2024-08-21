@@ -8,25 +8,22 @@ import ContactList from "../ContactList/ContactList"
 
 export default function App() {
   const [filter, setFilter] = useState('');
+
   const [tasks, setTasks] = useState(() => {
-    const isLocalStorageData = Boolean(localStorage.getItem('tasks'));
-    if (isLocalStorageData) {
-      const data = localStorage.getItem('tasks');
-      return JSON.parse(data);
-    }
-    return objects;
+    const savClicks = window.localStorage.getItem("my-clicks");
+    return savClicks !== null ? JSON.parse(savClicks) : objects
   });
 
   useEffect(() => {
-    const isLocalStorData = Boolean(localStorage.getItem('reviews'));
+    const isLocalStorData = Boolean(localStorage.getItem("my-clicks"));
     if (isLocalStorData) {
-      const data = localStorage.getItem('reviews');
+      const data = localStorage.getItem("my-clicks");
       setTasks(JSON.parse(data));
     }
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("m-click", JSON.stringify(tasks));
+    window.localStorage.setItem("my-clicks", JSON.stringify(tasks));
   }, [tasks]);
 
   const addTask = (newTask) => {
